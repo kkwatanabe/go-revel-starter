@@ -1,0 +1,18 @@
+version: '2'
+services:
+    db:
+        image: mysql:5.7
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=revel
+            - MYSQL_PASSWORD=root
+            - MYSQL_DATABASE=revel
+    web:
+        build: .
+        command: bash -c "dep ensure && revel run app"
+        volumes:
+            - ./:/go/src/app #作成したフォルダにアプリケーションをマウント
+        ports:
+            - 9000:9000
+        depends_on:
+            - db

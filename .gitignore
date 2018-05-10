@@ -1,0 +1,11 @@
+test-results/
+tmp/
+routes/
+vendor/
+
+### JetBrains IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
